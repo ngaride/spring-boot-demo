@@ -1,63 +1,60 @@
-EKS Deployment Steps - High Level Bullet Points
-Phase 1: Prerequisites
+# EKS Deployment Steps – High Level Overview
 
-Install AWS CLI, kubectl, eksctl, Docker
-Configure AWS credentials
-Create ECR repositories
-Build and push Docker images to ECR
+## **Phase 1: Prerequisites**
+- **Install Tools:**
+  - AWS CLI
+  - kubectl
+  - eksctl
+  - Docker
+- **Configure AWS Credentials**
+- **Create ECR Repositories**
+- **Build and Push Docker Images to ECR**
 
-Phase 2: Create EKS Cluster
+## **Phase 2: Create EKS Cluster**
+- **Create EKS Cluster with eksctl** (takes ~15-20 minutes)
+- **Verify Cluster & kubectl Connectivity**
+- **Install AWS Load Balancer Controller**
 
-Create EKS cluster with eksctl (15-20 minutes)
-Verify cluster and kubectl connectivity
-Install AWS Load Balancer Controller
+## **Phase 3: Kubernetes Manifests**
+- **Create Deployment YAMLs:**
+  - Eureka Server
+  - Product Service
+  - Order Service
+- **Create Service Definitions for Each Deployment**
+- **Create Ingress/ALB Configuration**
 
-Phase 3: Kubernetes Manifests
+## **Phase 4: Deploy Applications**
+- **Deploy Eureka Server First**
+- **Deploy Product Service**
+- **Deploy Order Service**
+- **Deploy Ingress/Load Balancer**
+- **Verify All Pods Are Running**
 
-Create Deployment YAML for Eureka Server
-Create Deployment YAML for Product Service
-Create Deployment YAML for Order Service
-Create Service definitions for each deployment
-Create Ingress/ALB configuration
+## **Phase 5: Configure Load Balancer**
+- **Install AWS Load Balancer Controller**
+- **Create Application Load Balancer via Ingress**
+- **Configure Path-Based Routing**
+- **Get ALB DNS Endpoint**
 
-Phase 4: Deploy Applications
+## **Phase 6: Testing**
+- **Test Product Service Endpoints via ALB**
+- **Test Order Service Endpoints via ALB**
+- **Verify Service-to-Service Communication**
+- **Check Health Endpoints**
 
-Deploy Eureka Server first
-Deploy Product Service
-Deploy Order Service
-Deploy Ingress/Load Balancer
-Verify all pods are running
+## **Phase 7: Production Setup**
+- **Configure Horizontal Pod Autoscaler**
+- **Set Up Monitoring (CloudWatch/Prometheus)**
+- **Configure Secrets and ConfigMaps**
+- **Set Up Logging Aggregation**
 
-Phase 5: Configure Load Balancer
+## **Phase 8: Optional Enhancements**
+- **Set Up CI/CD Pipeline**
+- **Configure Blue-Green Deployments**
+- **Add RDS Database**
+- **Implement Security Best Practices**
 
-Install AWS Load Balancer Controller
-Create Application Load Balancer via Ingress
-Configure path-based routing
-Get ALB DNS endpoint
-
-Phase 6: Testing
-
-Test Product Service endpoints via ALB
-Test Order Service endpoints via ALB
-Verify service-to-service communication
-Check health endpoints
-
-Phase 7: Production Setup
-
-Configure Horizontal Pod Autoscaler
-Set up monitoring (CloudWatch/Prometheus)
-Configure secrets and ConfigMaps
-Set up logging aggregation
-
-Phase 8: Optional Enhancements
-
-Set up CI/CD pipeline
-Configure blue-green deployments
-Add RDS database
-Implement security best practices
-
-Phase 9: Cleanup
-
-Delete Kubernetes resources
-Delete EKS cluster
-Clean up ECR repositories
+## **Phase 9: Cleanup**
+- **Delete Kubernetes Resources**
+- **Delete EKS Cluster**
+- **Clean Up ECR Repositories**
