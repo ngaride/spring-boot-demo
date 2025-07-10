@@ -1,0 +1,63 @@
+EKS Deployment Steps - High Level Bullet Points
+Phase 1: Prerequisites
+
+Install AWS CLI, kubectl, eksctl, Docker
+Configure AWS credentials
+Create ECR repositories
+Build and push Docker images to ECR
+
+Phase 2: Create EKS Cluster
+
+Create EKS cluster with eksctl (15-20 minutes)
+Verify cluster and kubectl connectivity
+Install AWS Load Balancer Controller
+
+Phase 3: Kubernetes Manifests
+
+Create Deployment YAML for Eureka Server
+Create Deployment YAML for Product Service
+Create Deployment YAML for Order Service
+Create Service definitions for each deployment
+Create Ingress/ALB configuration
+
+Phase 4: Deploy Applications
+
+Deploy Eureka Server first
+Deploy Product Service
+Deploy Order Service
+Deploy Ingress/Load Balancer
+Verify all pods are running
+
+Phase 5: Configure Load Balancer
+
+Install AWS Load Balancer Controller
+Create Application Load Balancer via Ingress
+Configure path-based routing
+Get ALB DNS endpoint
+
+Phase 6: Testing
+
+Test Product Service endpoints via ALB
+Test Order Service endpoints via ALB
+Verify service-to-service communication
+Check health endpoints
+
+Phase 7: Production Setup
+
+Configure Horizontal Pod Autoscaler
+Set up monitoring (CloudWatch/Prometheus)
+Configure secrets and ConfigMaps
+Set up logging aggregation
+
+Phase 8: Optional Enhancements
+
+Set up CI/CD pipeline
+Configure blue-green deployments
+Add RDS database
+Implement security best practices
+
+Phase 9: Cleanup
+
+Delete Kubernetes resources
+Delete EKS cluster
+Clean up ECR repositories
